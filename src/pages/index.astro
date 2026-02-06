@@ -1,17 +1,39 @@
 ---
+import { getCollection, type CollectionEntry } from "astro:content";
+import CardLastPost from "../components/CardLastPost.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
+const allPosts = await getCollection("posts");
+
+const sortedPosts = allPosts
+  .filter((post: CollectionEntry<"posts">) => !post.data.draft)
+  .sort(
+    (a: CollectionEntry<"posts">, b: CollectionEntry<"posts">) =>
+      b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  );
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<style>
+  .list-posts {
+    margin-top: 60px;
+    border-top: 1px solid #3a3a3a;
+    padding-top: 36px;
+  }
+
+  h2 {
+    color: #f0f0f0;
+  }
+</style>
+
+<BaseLayout>
+  <CardLastPost />
+  <section class="list-posts">
+    {
+      sortedPosts.map((post) => (
+        <li>
+          <a href={`/pages/${post.id}`}>{post.data.title}</a>
+        </li>
+      ))
+    }
+  </section>
+</BaseLayout>
