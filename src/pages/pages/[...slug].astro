@@ -23,28 +23,44 @@ if (!post) {
 
 const { Content } = await render(post);
 
-const formatoBrasileiro = post.data.pubDate.toLocaleDateString('pt-BR', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric'
-})
+const formatoBrasileiro = post.data.pubDate.toLocaleDateString("pt-BR", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+});
 ---
 
-<style>  
+<style>
     .format-description {
         margin: 0;
         font-size: 0.9rem;
     }
 
+    @media (min-width: 992px) {
+        .section-limited {
+            width: 50vw;
+            margin: 0 auto;
+        }
+    }
+
+    @media (max-width: 991.98px) {
+        .section-limited {
+            width: 100%;
+        }
+    }
 </style>
 
 <article>
     <BaseLayout>
-        <section class="container w-50">
+        <section class="section-limited">
             <section class="text-center m-4 p-4">
                 <h1 class="fw-bold">{post.data.title}</h1>
-                <p class="fw-bold fst-italic format-description">{post.data.description}</p>
-                <p class="fw-bold fst-italic format-description">{formatoBrasileiro}</p>
+                <p class="fw-bold fst-italic format-description">
+                    {post.data.description}
+                </p>
+                <p class="fw-bold fst-italic format-description">
+                    {formatoBrasileiro}
+                </p>
             </section>
             <main>
                 <Content />
