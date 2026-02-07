@@ -1,7 +1,7 @@
 ---
 title: Olá, sejam bem-vindos
 tag: Ideia
-pubDate: 2026-06-02T08:10:00
+pubDate: 2026-02-06T08:10:00
 description: Me apresentando e falando um pouco sobre a ideia do blog
 author: IzuBot
 ---
