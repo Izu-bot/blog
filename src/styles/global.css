@@ -13,16 +13,13 @@ body {
     box-sizing: border-box;
 }
 
-h1 {
+h1, h2, h3, h4 {
     color: #f0f0f0;
-}
-
-h2, h3, h4 {
-    color: #2a2a2a;
 }
 
 p {
     color: #c3c3c3;
+    font-weight: 400;
 }
 
 a {
@@ -36,4 +33,13 @@ a:hover {
 
 .custom-border {
     border-bottom: 1px solid #3a3a3a;
+}
+
+ul, li {
+    color: #c3c3c3;
+    font-weight: 600;
+}
+
+hr {
+    color: #919191;
 }

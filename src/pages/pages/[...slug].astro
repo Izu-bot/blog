@@ -7,17 +7,48 @@ export async function getStaticPaths() {
 
     return posts.map((post: CollectionEntry<"posts">) => ({
         params: { slug: post.id },
-        props: { post },
     }));
 }
 
-const { post } = Astro.props;
+const slugParam = Array.isArray(Astro.params.slug)
+    ? Astro.params.slug.join("/")
+    : Astro.params.slug;
+
+const posts = await getCollection("posts");
+const post = posts.find((p: CollectionEntry<"posts">) => p.id === slugParam);
+
+if (!post) {
+    throw new Error(`Post not found: ${slugParam}`);
+}
+
 const { Content } = await render(post);
+
+const formatoBrasileiro = post.data.pubDate.toLocaleDateString('pt-BR', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric'
+})
 ---
+
+<style>  
+    .format-description {
+        margin: 0;
+        font-size: 0.9rem;
+    }
+
+</style>
 
 <article>
     <BaseLayout>
-        <h1>{post.data.title}</h1>
-        <Content />
+        <section class="container w-50">
+            <section class="text-center m-4 p-4">
+                <h1 class="fw-bold">{post.data.title}</h1>
+                <p class="fw-bold fst-italic format-description">{post.data.description}</p>
+                <p class="fw-bold fst-italic format-description">{formatoBrasileiro}</p>
+            </section>
+            <main>
+                <Content />
+            </main>
+        </section>
     </BaseLayout>
 </article>
