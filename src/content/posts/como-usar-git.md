@@ -6,7 +6,7 @@ description: O básico para versionar seus projetos
 author: IzuBot
 ---
 
-**Esse pequeno tutorial será para apresentar o básico sobre gerenciamento de versões usando o Git, é um requisito muito importante se você quer disponibilizar suas aplicações saber usar essa ferramenta.**
+**Este pequeno tutorial tem como objetivo apresentar o básico sobre gerenciamento de versões usando o Git, um requisito muito importante se você deseja ser capaz de disponibilizar suas aplicações.**
 
 - [O que é Git?](#o-que-é-git)
 - [Bash](#bash)
@@ -16,7 +16,7 @@ author: IzuBot
 - [O Básico do Git](#o-básico-do-git)
   - [Integridade](#integridade)
   - [Três Estados](#três-estados)
-- [Comandos Básicos e o Clico de Vida](#comandos-básicos-e-o-clico-de-vida)
+- [Comandos Básicos e o Ciclo de Vida](#comandos-básicos-e-o-ciclo-de-vida)
 
 ## O que é Git?
 
@@ -50,15 +50,15 @@ Para entender melhor esses comandos a melhor maneira é praticar.
 
 ![Exemplo de uso do Bash](/feb-10-2026.png)
 
-Esse é meu terminal aberto, e o que significa tudo isso? Bom, `kauan` é o nome do meu **usuario**, o `@` é um **separador visual**, indicando "no" ou "em" e o `archlinux` é o **nome da minha máquina**, no seu computador isso estará um pouco diferente.
-O simbolo `~` é um atalho do **Linux/Unix** que indica o **diretório home** do usuário local então significa que é meu diretório de trabalho na minha máquina. O `$` mostra que estou com o **usuário padrão não root**.
+Este é meu terminal aberto. O que significa tudo isso? Bem, `kauan` é o nome do meu **usuário**, o `@` é um **separador visual** indicando "em", e o `archlinux` é o **nome da minha máquina**; no seu computador isso será um pouco diferente.
+O símbolo `~` é um atalho do **Linux/Unix** que indica o **diretório home** do usuário local, o que significa que é meu diretório de trabalho na máquina. O `$` mostra que estou com o **usuário padrão (não root)**.
 
 ---
 
 ### Saídas no terminal
 
-Agora que você já sabe os comandos mais básicos você pode abrir o Bash e se familiarizar com ele. Caso queira saber mais simplemente procure por comandos do bash no seu navegador.
-> Muito importante, para que funcione você precisa está no terminal com o Bash, caso esteja no Windows, baixe a ferramenta do Git pois já vem um terminal com Bash.
+Agora que você já sabe os comandos mais básicos, pode abrir o Bash e se familiarizar com ele. Caso queira saber mais, simplesmente procure por comandos do bash no seu navegador.
+> Muito importante: para que funcione, você precisa estar no terminal com o Bash. Caso esteja no Windows, baixe a ferramenta do Git, pois já vem com um terminal Bash.
 
 ---
 
@@ -84,23 +84,23 @@ Você verá valores de hash em todo o lugar no Git. Na verdade, o Git armazena t
 
 ### Três Estados
 
-Essa é a parte mais importante do funcionamento de Git. O Git possui três estados diferentes que seus arquivos podem estar: *commited*, modificado (*modified*) e preparado (*staged*).
+Esta é a parte mais importante do funcionamento do Git. O Git possui três estados diferentes em que seus arquivos podem estar: *commited*, modificado (*modified*) e preparado (*staged*).
 
 - **Commited** significa que os dados estão armazenados de forma segura no seu banco de dados local.
 - **Modified** significa que você alterou o arquivo, mas ainda não fez o *commit* no seu banco de dados.
-- **Staged** significa que você marcou a versão atual de um arquivo modificado para fazer parte de seu próximo *commit*
+- **Staged** significa que você marcou a versão atual de um arquivo modificado para fazer parte de seu próximo *commit*.
 
-Isso nos leva a três seções principais de um projeto: o **diretório Git**, o **diretório de trabalho** e **área de preparo**.
+Isso nos leva a três seções principais de um projeto: o **diretório Git**, o **diretório de trabalho** e a **área de preparo**.
 
-- **O diretório Git** é onde o Git armazena os metadados do banco de dados de objetos de seu projeto. É a parte mais importante do Git, e é o que é copiado quando você clona o repositório de outro computador.
+- **O diretório Git** é onde o Git armazena os metadados do banco de dados de objetos de seu projeto. É a parte mais importante do Git e é copiado quando você clona o repositório de outro computador.
 
-- **O diretório de trabalho** é uma cópia simples de um versão do projeto. Esses arquivos são pegos do banco de dados compactados no diretório Git e colocados no disco para que você possa usar.
+- **O diretório de trabalho** é uma cópia simples de uma versão do projeto. Esses arquivos são obtidos do banco de dados compactado no diretório Git e colocados no disco para que você possa usar.
 
-- **A área de preparo** é um arquivo, geralmente dentro do seu repositório Git, que armazena as informações sobre o que irá entrar no seu próximo commit. É comumente chamado de área de preparo (staging area).
+- **A área de preparo** é um arquivo, geralmente dentro do seu repositório Git, que armazena as informações sobre o que irá entrar no seu próximo commit. É comumente chamada de área de preparo (staging area).
 
 ---
 
-## Comandos Básicos e o Clico de Vida
+## Comandos Básicos e o Ciclo de Vida
 
 Agora que você entende os estados, veja como os comandos movem seus arquivos entre eles:
 
