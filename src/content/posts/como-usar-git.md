@@ -75,7 +75,9 @@ As operações no Git são quase todas locais, o que faz com que quase todos os 
 
 Tudo no Git passa por *checksum* (soma de verificação) antes de ser armazenado e é referenciado por esse *checksum*. Isto significa que é impossivel mudar um conteúdo sem que o Git saiba. Essa funcionalidade está incorporada nos níveis mais baixos do Git. Você não perderá informações durante a transferência e não receberá um arquivo corrompido sem que o Git seja capaz de detectar.
 O mecanismo que o Git usa para fazer a soma de verificação é chamado de hash **SHA-1**. Está é uma sequencia de 40 caracteres hexadecimais (0-9 e-f) e é calculada com base no conteúdo de uma estrutura de arquivos ou diretório Git. Um hash SHA-1 é algo parecido com:
+
 `24b9da6552252987aa493b52f8696cd6d3b00373`
+
 Você verá valores de hash em todo o lugar no Git. Na verdade, o Git armazena tudo em seu banco de dados não pelo no do arquivo, mas pelo valor do hash do seu conteúdo.
 
 ---
