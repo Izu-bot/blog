@@ -48,3 +48,24 @@ ul, li {
 hr {
     color: #919191;
 }
+
+.list-posts {
+    margin-top: 60px;
+    border-top: 1px solid #3a3a3a;
+    padding-top: 36px;
+}
+
+h2 {
+    color: #f0f0f0;
+}
+
+.month-group {
+    margin-bottom: 2rem;
+}
+
+.month-title {
+    font-size: 1.1rem;
+    color: #a0a0a0;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}

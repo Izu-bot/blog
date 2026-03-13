@@ -11,28 +11,38 @@ const sortedPosts = allPosts
     (a: CollectionEntry<"posts">, b: CollectionEntry<"posts">) =>
       b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
   );
+
+// Agrupa os posts por "Mês Ano"
+const postsByMonth = sortedPosts.reduce((acc, post) => {
+  const label = post.data.pubDate.toLocaleDateString("pt-BR", {
+    month: "long",
+    year: "numeric",
+  });
+  // Capitaliza a primeira letra (ex: "fevereiro 2026" → "Fevereiro 2026")
+  const labelFormatted = label.charAt(0).toUpperCase() + label.slice(1);
+
+  if (!acc[labelFormatted]) acc[labelFormatted] = [];
+  acc[labelFormatted].push(post);
+  return acc;
+}, {} as Record<string, CollectionEntry<"posts">[]>);
 ---
 
-<style>
-  .list-posts {
-    margin-top: 60px;
-    border-top: 1px solid #3a3a3a;
-    padding-top: 36px;
-  }
-
-  h2 {
-    color: #f0f0f0;
-  }
-</style>
 
 <BaseLayout>
   <CardLastPost />
   <section class="list-posts">
     {
-      sortedPosts.map((post) => (
-        <li>
-          <a href={`/pages/${post.id}`}>{post.data.title}</a>
-        </li>
+      Object.entries(postsByMonth).map(([month, posts]) => (
+        <div class="month-group">
+          <p class="month-title">{month}</p>
+          <ul>
+            {posts.map((post) => (
+              <li>
+                <a href={`/pages/${post.id}`}>{post.data.title}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
       ))
     }
   </section>
