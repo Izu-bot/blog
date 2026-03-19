@@ -6,6 +6,12 @@ description: O que é Binary Search e como implementá-lo?
 author: IzuBot
 ---
 
+## Índice
+
+- [Binary Search](#binary-search)
+- [Implementando Binary Search](#implementando-binary-search)
+- [Conclusão](#conclusão)
+
 ## Binary Search
 
 A **pesquisa binária**, ou Binary search é um **algoritmo de busca** - o mais simples. Ela recebe uma **lista** ou um **array** de valores **ordenados** - é extremamente importante que itens estejam ordenados e que existe um valor específico a ser encontrado. Se o elemento buiscado estiver presente na lista, o algoritmo retorna a posição do elemento. Caso contrário, ele retorna um valor indicando que o elemento não foi encontrado - geralmente -1 ou null.
