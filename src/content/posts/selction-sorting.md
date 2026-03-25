@@ -81,7 +81,7 @@ Existe inúmeras formas de se aplicar o selection sort, como um selection sort r
 
 void print_array(int arr[], int n);
 
-int main(int argc, int *argv[])
+int main(int argc, char *argv[])
 {
     int arr[] = {64, 25, 12, 22, 11};
 
